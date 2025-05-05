@@ -1,12 +1,11 @@
 import "./App.css";
-import DefaultFooter from "./components/Footer/DefaultFooter";
-import LoggedInNavbar from "./components/Navbar/LoggedInNavbar";
+
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   return (
     <>
-      <LoggedInNavbar />
-      <DefaultFooter />
+      <RegisterPage />
     </>
   );
 }
