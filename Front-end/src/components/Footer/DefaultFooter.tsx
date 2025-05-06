@@ -28,6 +28,8 @@ function DefaultFooter() {
                   color: "#5D4037",
                   fontWeight: "bold",
                   textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+                  fontSize: "18px",
+                  textAlign: "center",
                 }}
               >
                 Malzemeler sizden, tarifler YourMeal’den!
