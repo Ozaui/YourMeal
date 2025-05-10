@@ -25,26 +25,18 @@ function RegisterPage() {
             width: "100%",
             maxWidth: "800px",
             marginTop: "20px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexWrap: "wrap",
           }}
         >
-          <Grid
-            size={{ xs: 12, sm: 6 }}
-            sx={{ display: "flex", justifyContent: "center" }}
-          >
+          <Grid size={{ xs: 12 }}>
             <PersinalInformation />
           </Grid>
-          <Grid
-            size={{ xs: 12, sm: 6 }}
-            sx={{ display: "flex", justifyContent: "center" }}
-          >
+          <Grid size={{ xs: 12 }}>
             <OptionalInformation />
           </Grid>
         </Grid>
-        <Button>Save</Button>
+        <Button variant="contained" sx={{ mt: 4 }}>
+          Save
+        </Button>
       </Container>
       <DefaultFooter />
     </div>

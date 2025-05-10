@@ -1,4 +1,4 @@
-import { InputAdornment, TextField, Grid } from "@mui/material";
+import { InputAdornment, TextField, Grid, Box } from "@mui/material";
 import {
   FaUserAlt,
   FaPhoneAlt,
@@ -8,36 +8,24 @@ import {
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
-function PersinalInformation() {
+function PersonalInformation() {
   return (
-    <div>
-      <Grid
-        container
-        spacing={2}
-        sx={{
-          width: "100%",
-          marginTop: "20px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+    <Box sx={{ maxWidth: 800, mx: "auto", mt: 5, px: 2 }}>
+      <h1 style={{ textAlign: "center" }}>Personal Information</h1>
+      <Grid container spacing={2} justifyContent="center">
         <Grid size={{ xs: 12, sm: 6 }}>
           <TextField
             id="name"
             variant="outlined"
             label="Your Name"
             fullWidth
-            sx={{ marginBottom: "10px", marginTop: "10px" }}
-            slotProps={{
-              input: {
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <FaUserAlt />
-                  </InputAdornment>
-                ),
-              },
+            sx={{ my: 1 }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <FaUserAlt />
+                </InputAdornment>
+              ),
             }}
           />
         </Grid>
@@ -47,15 +35,13 @@ function PersinalInformation() {
             variant="outlined"
             label="Your Last Name"
             fullWidth
-            sx={{ marginBottom: "10px", marginTop: "10px" }}
-            slotProps={{
-              input: {
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <FaUserAlt />
-                  </InputAdornment>
-                ),
-              },
+            sx={{ my: 1 }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <FaUserAlt />
+                </InputAdornment>
+              ),
             }}
           />
         </Grid>
@@ -65,15 +51,13 @@ function PersinalInformation() {
             label="Email"
             variant="outlined"
             fullWidth
-            sx={{ marginBottom: "10px", marginTop: "10px" }}
-            slotProps={{
-              input: {
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <MdEmail />
-                  </InputAdornment>
-                ),
-              },
+            sx={{ my: 1 }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <MdEmail />
+                </InputAdornment>
+              ),
             }}
           />
         </Grid>
@@ -83,33 +67,29 @@ function PersinalInformation() {
             label="Phone"
             variant="outlined"
             fullWidth
-            sx={{ marginBottom: "10px", marginTop: "10px" }}
-            slotProps={{
-              input: {
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <FaPhoneAlt />
-                  </InputAdornment>
-                ),
-              },
+            sx={{ my: 1 }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <FaPhoneAlt />
+                </InputAdornment>
+              ),
             }}
           />
         </Grid>
         <Grid size={{ xs: 12, sm: 6 }}>
           <TextField
-            id="adress"
+            id="address"
             label="Address"
             variant="outlined"
             fullWidth
-            sx={{ marginBottom: "10px", marginTop: "10px" }}
-            slotProps={{
-              input: {
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <FaHouseUser />
-                  </InputAdornment>
-                ),
-              },
+            sx={{ my: 1 }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <FaHouseUser />
+                </InputAdornment>
+              ),
             }}
           />
         </Grid>
@@ -119,15 +99,13 @@ function PersinalInformation() {
             label="Birth Date"
             variant="outlined"
             fullWidth
-            sx={{ marginBottom: "10px", marginTop: "10px" }}
-            slotProps={{
-              input: {
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <FaBirthdayCake />
-                  </InputAdornment>
-                ),
-              },
+            sx={{ my: 1 }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <FaBirthdayCake />
+                </InputAdornment>
+              ),
             }}
           />
         </Grid>
@@ -135,18 +113,16 @@ function PersinalInformation() {
           <TextField
             id="password"
             label="Password"
-            variant="outlined"
             type="password"
+            variant="outlined"
             fullWidth
-            sx={{ marginBottom: "10px", marginTop: "10px" }}
-            slotProps={{
-              input: {
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <FaLock />
-                  </InputAdornment>
-                ),
-              },
+            sx={{ my: 1 }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <FaLock />
+                </InputAdornment>
+              ),
             }}
           />
         </Grid>
@@ -154,24 +130,22 @@ function PersinalInformation() {
           <TextField
             id="passwordConfirm"
             label="Password Confirmation"
-            variant="outlined"
             type="password"
+            variant="outlined"
             fullWidth
-            sx={{ marginBottom: "10px", marginTop: "10px" }}
-            slotProps={{
-              input: {
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <FaLock />
-                  </InputAdornment>
-                ),
-              },
+            sx={{ my: 1 }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <FaLock />
+                </InputAdornment>
+              ),
             }}
           />
         </Grid>
       </Grid>
-    </div>
+    </Box>
   );
 }
 
-export default PersinalInformation;
+export default PersonalInformation;
