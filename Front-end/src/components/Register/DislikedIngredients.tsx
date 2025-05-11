@@ -8,8 +8,10 @@ import {
 } from "@mui/material";
 import { FaArrowCircleDown, FaArrowCircleUp } from "react-icons/fa";
 import dislikedIngredients from "../../data/dislikedIngredients"; // Adjust the import path as necessary
+import { FormValues } from "../../types/FormValues";
+import { FormikProps } from "formik";
 
-function DislikedIngredients() {
+function DislikedIngredients({ formik }: { formik: FormikProps<FormValues> }) {
   const [selectedAllergens, setSelectedAllergens] = useState<string[]>([]);
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,7 +50,7 @@ function DislikedIngredients() {
             }}
             onClick={handleOpener}
           >
-            <FaArrowCircleDown /> &nbsp; Select the ingredients you don't like
+            <FaArrowCircleDown /> &nbsp; Choose the ingredients you don't like
             &nbsp;
             <FaArrowCircleDown />
           </h2>
@@ -74,22 +76,36 @@ function DislikedIngredients() {
             onClick={handleOpener}
           >
             <FaArrowCircleUp />
-            &nbsp; Select the ingredients you don't like &nbsp;
+            &nbsp; Choose the ingredients you don't like &nbsp;
             <FaArrowCircleUp />
           </h2>
         </div>
       )}
 
       {open === true && (
-        <FormGroup>
+        <FormGroup sx={{ backgroundColor: "#f0fff0", borderRadius: "5px" }}>
           <Stack
             direction="row"
             flexWrap="wrap"
             spacing={1}
-            sx={{ gap: "8px", justifyContent: "flex-start" }}
+            sx={{
+              gap: "8px",
+              justifyContent: "space-evenly",
+              padding: "10px",
+            }}
           >
             {dislikedIngredients.map((item) => (
-              <Box key={item.name} sx={{ flex: "0 1 auto" }}>
+              <Box
+                key={item.name}
+                sx={{
+                  flex: "0 1 auto",
+                  border: "1px solid #c5ebcd",
+                  backgroundColor: "#e0f7fa",
+                  boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                  padding: "5px",
+                  borderRadius: "5px",
+                }}
+              >
                 <FormControlLabel
                   control={
                     <Checkbox
