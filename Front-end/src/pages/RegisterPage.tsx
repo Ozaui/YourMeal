@@ -3,11 +3,32 @@ import DefaultFooter from "../components/Footer/DefaultFooter";
 import PersinalInformation from "../components/Register/PersinalInformation";
 import OptionalInformation from "../components/Register/OptionalInformation";
 import { useFormik } from "formik";
-import { FormValues } from "../types/FormValues";
+import { UserType } from "../types/UserType";
+import { RegisterPageSchema } from "../schemas/RegisterPageSchema";
 
 function RegisterPage() {
-  const formik = useFormik<FormValues>({
+  // const submit =  (values:UserType) => {
+  //   try {
+  //     const payload : UserType= {
+  //       id: Math.floor(Math.random() * 1000).toString(),
+  //       name: values.name,
+  //       lastName: values.lastName,
+  //       email: values.email,
+  //       phone: values.phone,
+  //       address: values.address,
+  //       birthDate: values.birthDate,
+  //       password: values.password,
+  //       confirmPassword: values.confirmPassword,
+  //       diet: values.diet,
+  //       allergens: values.allergens,
+  //       dislike: values.dislike,
+  //     }
+
+  // }
+
+  const formik = useFormik<UserType>({
     initialValues: {
+      id: "",
       name: "",
       lastName: "",
       email: "",
@@ -21,8 +42,9 @@ function RegisterPage() {
       dislike: [],
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      //alert(JSON.stringify(values, null, 2));
     },
+    validationSchema: RegisterPageSchema,
   });
 
   return (
@@ -51,7 +73,7 @@ function RegisterPage() {
             borderRadius: "5px",
           }}
         >
-          RegisterPage
+          Welcome to Register Page
         </h1>
 
         <Grid

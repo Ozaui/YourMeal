@@ -1,7 +1,6 @@
 import { InputAdornment, TextField, Grid, Box } from "@mui/material";
 import { FormikProps } from "formik";
-import { FormValues } from "../../types/FormValues";
-
+import { UserType } from "../../types/UserType";
 import {
   FaUserAlt,
   FaPhoneAlt,
@@ -11,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
-function PersonalInformation({ formik }: { formik: FormikProps<FormValues> }) {
+function PersonalInformation({ formik }: { formik: FormikProps<UserType> }) {
   return (
     <Box sx={{ maxWidth: 800, mx: "auto", mt: 5, px: 2 }}>
       <h1
@@ -27,6 +26,9 @@ function PersonalInformation({ formik }: { formik: FormikProps<FormValues> }) {
             label="Your Name"
             value={formik.values.name}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.touched.name && Boolean(formik.errors.name)}
+            helperText={formik.touched.name && formik.errors.name}
             variant="outlined"
             fullWidth
             sx={{ my: 1 }}
@@ -46,6 +48,9 @@ function PersonalInformation({ formik }: { formik: FormikProps<FormValues> }) {
             label="Your Last Name"
             value={formik.values.lastName}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.touched.lastName && Boolean(formik.errors.lastName)}
+            helperText={formik.touched.lastName && formik.errors.lastName}
             variant="outlined"
             fullWidth
             sx={{ my: 1 }}
@@ -65,6 +70,9 @@ function PersonalInformation({ formik }: { formik: FormikProps<FormValues> }) {
             label="Email"
             value={formik.values.email}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.touched.email && Boolean(formik.errors.email)}
+            helperText={formik.touched.email && formik.errors.email}
             variant="outlined"
             fullWidth
             sx={{ my: 1 }}
@@ -84,6 +92,9 @@ function PersonalInformation({ formik }: { formik: FormikProps<FormValues> }) {
             label="Phone"
             value={formik.values.phone}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.touched.phone && Boolean(formik.errors.phone)}
+            helperText={formik.touched.phone && formik.errors.phone}
             variant="outlined"
             fullWidth
             sx={{ my: 1 }}
@@ -103,6 +114,9 @@ function PersonalInformation({ formik }: { formik: FormikProps<FormValues> }) {
             label="Address"
             value={formik.values.address}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.touched.address && Boolean(formik.errors.address)}
+            helperText={formik.touched.address && formik.errors.address}
             variant="outlined"
             fullWidth
             sx={{ my: 1 }}
@@ -120,11 +134,16 @@ function PersonalInformation({ formik }: { formik: FormikProps<FormValues> }) {
             id="birthDate"
             name="birthDate"
             label="Birth Date"
+            type="date"
             value={formik.values.birthDate}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.touched.birthDate && Boolean(formik.errors.birthDate)}
+            helperText={formik.touched.birthDate && formik.errors.birthDate}
             variant="outlined"
             fullWidth
             sx={{ my: 1 }}
+            InputLabelProps={{ shrink: true }}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -142,6 +161,9 @@ function PersonalInformation({ formik }: { formik: FormikProps<FormValues> }) {
             type="password"
             value={formik.values.password}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.touched.password && Boolean(formik.errors.password)}
+            helperText={formik.touched.password && formik.errors.password}
             variant="outlined"
             fullWidth
             sx={{ my: 1 }}
@@ -162,6 +184,14 @@ function PersonalInformation({ formik }: { formik: FormikProps<FormValues> }) {
             type="password"
             value={formik.values.confirmPassword}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={
+              formik.touched.confirmPassword &&
+              Boolean(formik.errors.confirmPassword)
+            }
+            helperText={
+              formik.touched.confirmPassword && formik.errors.confirmPassword
+            }
             variant="outlined"
             fullWidth
             sx={{ my: 1 }}

@@ -4,9 +4,9 @@ import DietTypes from "./DietTypes";
 import Allergens from "./Allergens";
 import DislikedIngredients from "./DislikedIngredients";
 import { FormikProps } from "formik";
-import { FormValues } from "../../types/FormValues";
+import { UserType } from "../../types/UserType";
 
-function PersonalInformation({ formik }: { formik: FormikProps<FormValues> }) {
+function PersonalInformation({ formik }: { formik: FormikProps<UserType> }) {
   return (
     <Box sx={{ maxWidth: 800, mx: "auto", mt: 5, px: 2 }}>
       <h1

@@ -1,4 +1,5 @@
-export interface FormValues {
+export interface UserType {
+  id: string;
   name: string;
   lastName: string;
   email: string;

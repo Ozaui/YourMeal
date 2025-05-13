@@ -7,15 +7,10 @@ import {
   Box,
 } from "@mui/material";
 import allergens from "../../data/allergens";
-import { FaArrowCircleDown, FaArrowCircleUp } from "react-icons/fa";
 import { FormikProps } from "formik";
-import { FormValues } from "../../types/FormValues";
+import { UserType } from "../../types/UserType";
 
-function CheckboxSelectionDemo({
-  formik,
-}: {
-  formik: FormikProps<FormValues>;
-}) {
+function CheckboxSelectionDemo({ formik }: { formik: FormikProps<UserType> }) {
   const [selectedAllergens, setSelectedAllergens] = useState<string[]>([]);
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,104 +22,67 @@ function CheckboxSelectionDemo({
     );
   };
 
-  const [open, setOpen] = useState(false);
-  const handleOpener = () => {
-    setOpen((prev) => !prev);
-  };
-
   return (
     <div style={{ marginTop: "20px", marginBottom: "20px" }}>
-      {open === false ? (
-        <div
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <h2
           style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            backgroundColor: "#c5ebcd",
+            color: "black",
+            textAlign: "center",
+            boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+            padding: "10px",
+            borderRadius: "5px",
+            marginBottom: "10px",
           }}
         >
-          <h2
-            style={{
-              cursor: "pointer",
-              backgroundColor: "#c5ebcd",
-              color: "black",
-              textAlign: "center",
-              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-              padding: "10px",
-              borderRadius: "5px",
-            }}
-            onClick={handleOpener}
-          >
-            <FaArrowCircleDown /> &nbsp; Choose the ingredients you’re allergic
-            to. &nbsp;
-            <FaArrowCircleDown />
-          </h2>
-        </div>
-      ) : (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <h2
-            style={{
-              cursor: "pointer",
-              backgroundColor: "#c5ebcd",
-              color: "black",
-              textAlign: "center",
-              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-              padding: "10px",
-              borderRadius: "5px",
-            }}
-            onClick={handleOpener}
-          >
-            <FaArrowCircleUp />
-            &nbsp; Choose the ingredients you’re allergic &nbsp;
-            <FaArrowCircleUp />
-          </h2>
-        </div>
-      )}
-      {open === true && (
-        <FormGroup sx={{ backgroundColor: "#f0fff0", borderRadius: "5px" }}>
-          <Stack
-            direction="row"
-            flexWrap="wrap"
-            spacing={1}
-            sx={{
-              gap: "8px",
-              justifyContent: "space-evenly",
-              padding: "10px",
-            }}
-          >
-            {allergens.map((allergen) => (
-              <Box
-                key={allergen.name}
-                sx={{
-                  flex: "0 1 auto",
-                  border: "1px solid #c5ebcd",
+          &nbsp; Choose the ingredients you’re allergic to. &nbsp;
+        </h2>
+      </div>
 
-                  backgroundColor: "#e0f7fa",
-                  boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-                  padding: "5px",
-                  borderRadius: "5px",
-                }}
-              >
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      name={allergen.name}
-                      onChange={handleCheckboxChange}
-                      checked={selectedAllergens.includes(allergen.name)}
-                    />
-                  }
-                  label={allergen.name}
-                />
-              </Box>
-            ))}
-          </Stack>
-        </FormGroup>
-      )}
+      <FormGroup sx={{ backgroundColor: "#f7dfbf", borderRadius: "5px" }}>
+        <Stack
+          direction="row"
+          flexWrap="wrap"
+          spacing={1}
+          sx={{
+            gap: "8px",
+            justifyContent: "space-evenly",
+            padding: "10px",
+          }}
+        >
+          {allergens.map((allergen) => (
+            <Box
+              key={allergen.name}
+              sx={{
+                flex: "0 1 auto",
+                border: "1px solid #c5ebcd",
+                backgroundColor: "#e0f7fa",
+                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                padding: "5px",
+                borderRadius: "5px",
+              }}
+            >
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name={allergen.name}
+                    onChange={handleCheckboxChange}
+                    checked={selectedAllergens.includes(allergen.name)}
+                  />
+                }
+                label={allergen.name}
+              />
+            </Box>
+          ))}
+        </Stack>
+      </FormGroup>
 
       {selectedAllergens.length > 0 && (
         <Stack

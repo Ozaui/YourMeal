@@ -2,9 +2,9 @@ import { MenuItem, TextField } from "@mui/material";
 import { useState, useEffect } from "react";
 import dietTypes from "../../data/diets";
 import { FormikProps } from "formik";
-import { FormValues } from "../../types/FormValues";
+import { UserType } from "../../types/UserType";
 
-function DietTypes({ formik }: { formik: FormikProps<FormValues> }) {
+function DietTypes({ formik }: { formik: FormikProps<UserType> }) {
   const [selectedDiet, setSelectedDiet] = useState("");
 
   useEffect(() => {
