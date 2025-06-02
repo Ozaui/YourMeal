@@ -10,3 +10,9 @@ export interface MealsState {
   status: string;
   error: string | null;
 }
+
+export interface randomMealState {
+  meal: Meal | null;
+  status: string;
+  error: string | null;
+}

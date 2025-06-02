@@ -1,11 +1,11 @@
-// store.ts (store dosyan)
-// export edilen dispatch tipi
 import { configureStore } from "@reduxjs/toolkit";
 import mealReducer from "../features/meals/mealsSlice";
+import randomMealReducer from "../features/meals/randomMealSlice";
 
 export const store = configureStore({
   reducer: {
     meals: mealReducer,
+    randomMeal: randomMealReducer,
   },
 });
 

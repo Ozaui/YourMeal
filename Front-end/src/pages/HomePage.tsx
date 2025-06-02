@@ -3,33 +3,52 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchMeals } from "../features/meals/mealsSlice";
 import { AppDispatch, RootState } from "../app/store";
 import MealCard from "../components/Meal/MealCard";
+import SearchMeal from "../components/Meal/SearchMeal";
+import { fetchRandomMeal } from "../features/meals/randomMealSlice";
 
 function HomePage() {
-  const dispatch = useDispatch();
-  const appDispacth = useDispatch<AppDispatch>();
-  const { meals, status, error } = useSelector(
-    (state: RootState) => state.meals
-  );
+  const dispatch = useDispatch<AppDispatch>();
+
+  // Fetch meals
+  const meals = useSelector((state: RootState) => state.meals);
 
   useEffect(() => {
-    if (status === "idle") {
-      appDispacth(fetchMeals());
+    if (meals.status === "idle") {
+      dispatch(fetchMeals());
     }
-  }, [status, dispatch]);
-  if (status === "loading") {
+  }, [meals.status, dispatch]);
+  if (meals.status === "loading") {
     return <div>Loading...</div>;
   }
-  if (status === "failed") {
-    return <div>Error: {error}</div>;
+  if (meals.status === "failed") {
+    return <div>Error: {meals.error}</div>;
   }
+
   return (
-    <div>
+    <div
+      style={{
+        background: "linear-gradient(to bottom, #e0f8e9,#ffd7b1)",
+        minHeight: "100vh",
+      }}
+    >
       <h1 style={{ textAlign: "center" }}>Yemekler</h1>
-      <div className="cards-container">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "90vh",
+          textAlign: "center",
+        }}
+      >
+        <SearchMeal />
+      </div>
+
+      {/* <div className="cards-container">
         {meals.map((meal) => (
           <MealCard key={meal.idMeal} meal={meal} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
