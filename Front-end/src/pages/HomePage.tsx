@@ -5,6 +5,7 @@ import { AppDispatch, RootState } from "../app/store";
 import MealCard from "../components/Meal/MealCard";
 import SearchMeal from "../components/Meal/SearchMeal";
 import { fetchRandomMeal } from "../features/meals/randomMealSlice";
+import DefaultFooter from "../components/Footer/DefaultFooter";
 
 function HomePage() {
   const dispatch = useDispatch<AppDispatch>();
@@ -37,18 +38,20 @@ function HomePage() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "90vh",
+          minHeight: "100vh",
           textAlign: "center",
         }}
       >
         <SearchMeal />
       </div>
 
-      {/* <div className="cards-container">
-        {meals.map((meal) => (
+      <div className="cards-container">
+        {meals.meals.map((meal) => (
           <MealCard key={meal.idMeal} meal={meal} />
         ))}
-      </div> */}
+      </div>
+
+      <DefaultFooter />
     </div>
   );
 }

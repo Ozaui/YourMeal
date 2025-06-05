@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { randomMealState } from "../../types/MealType";
+import { RandomMealState } from "../../types/MealType";
 
 export const fetchRandomMeal = createAsyncThunk(
   "meal/fetchRandomMeal",
@@ -12,7 +12,7 @@ export const fetchRandomMeal = createAsyncThunk(
   }
 );
 
-const initialState: randomMealState = {
+const initialState: RandomMealState = {
   meal: null,
   status: "idle",
   error: null,
