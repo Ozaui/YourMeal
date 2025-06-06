@@ -17,7 +17,7 @@ function LoginPage() {
       password: "",
     },
     onSubmit: (values) => {
-      //alert(JSON.stringify(values, null, 2));
+      alert(JSON.stringify(values, null, 2));
     },
     validationSchema: LoginPageSchema,
   });
@@ -48,7 +48,7 @@ function LoginPage() {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            minHeight: "85vh",
+            minHeight: "82vh",
           }}
         >
           <Grid
@@ -108,7 +108,7 @@ function LoginPage() {
             sx={{ mt: 4, mb: 2, color: "black", backgroundColor: "#c4ebcd" }}
             type="submit"
           >
-            Save
+            Login
           </Button>
         </Container>
       </form>
