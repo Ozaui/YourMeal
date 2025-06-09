@@ -5,8 +5,12 @@ import OptionalInformation from "../components/Register/OptionalInformation";
 import { useFormik } from "formik";
 import { UserType } from "../types/UserType";
 import { RegisterPageSchema } from "../schemas/RegisterPageSchema";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../app/store";
+import { registerUser } from "../features/user/userSlice";
 
 function RegisterPage() {
+  const dispatch = useDispatch<AppDispatch>();
   const formik = useFormik<UserType>({
     initialValues: {
       id: "",
@@ -23,9 +27,10 @@ function RegisterPage() {
       dislike: [],
     },
     onSubmit: (values) => {
-      //alert(JSON.stringify(values, null, 2));
+      console.log("başarılı");
+      dispatch(registerUser(values));
     },
-    validationSchema: RegisterPageSchema,
+    validationSchema: undefined,
   });
 
   return (

@@ -12,3 +12,9 @@ export interface UserType {
   allergens: string[];
   dislike: string[];
 }
+
+export interface UserState {
+  user: UserType | null;
+  status: "idle" | "loading" | "succeded" | "failed";
+  error: string | null;
+}
