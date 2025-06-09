@@ -91,13 +91,17 @@ function PersonalInformation({ formik }: { formik: FormikProps<UserType> }) {
             name="phone"
             label="Phone"
             value={formik.values.phone}
-            onChange={formik.handleChange}
+            onChange={(e) => {
+              const onlyNums = e.target.value.replace(/[^0-9]/g, "");
+              formik.setFieldValue("phone", onlyNums);
+            }}
             onBlur={formik.handleBlur}
             error={formik.touched.phone && Boolean(formik.errors.phone)}
             helperText={formik.touched.phone && formik.errors.phone}
             variant="outlined"
             fullWidth
             sx={{ my: 1 }}
+            inputProps={{ maxLength: 10 }}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
