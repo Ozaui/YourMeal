@@ -1,0 +1,84 @@
+.register-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.register-form button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #5db996;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.first-form-container {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+  padding: 40px;
+  background-color: #e3f0af;
+  border-radius: 10px;
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.3); /* Sol ve alt */
+}
+
+.diet-type {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+  padding: 40px;
+  background-color: #e3f0af;
+  border-radius: 10px;
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.3); /* Sol ve alt */
+}
+
+.diet {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #e3f0af;
+  border-bottom: 1px solid #118b50;
+  margin-top: 10px;
+}
+
+.diet {
+  outline: none;
+  border-bottom: 2px solid #118b50;
+}
+.dietType-description {
+  margin-top: 10px;
+  color: #118b50;
+  font-size: 14px;
+  border: 2px solid #118b50;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #e1f39d;
+}
+
+.form-group {
+  margin: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #118b50;
+}
+
+input {
+  border: none;
+  background-color: #e3f0af;
+  border-bottom: 1px solid #118b50;
+  padding: 10px;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 2px solid #118b50;
+}

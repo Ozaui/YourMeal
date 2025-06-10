@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { dietTypeNames } from "../types/dietType.js";
+import { dietTypes } from "../types/dietType.js";
 import { allergensNames } from "../types/allergens.js";
 import { dislikeIngredientNames } from "../types/dislikeIngrident.js";
 
@@ -12,7 +12,11 @@ const UserSchema = new mongoose.Schema(
 
     birthDate: { type: Date, required: true },
     password: { type: String, required: true },
-    dietType: { type: String, required: true, enum: dietTypeNames },
+    dietType: {
+      type: String,
+      required: true,
+      enum: dietTypes,
+    },
     allergens: { type: [String], required: true, enum: allergensNames },
     dislikeIngredients: {
       type: [String],

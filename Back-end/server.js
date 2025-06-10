@@ -3,6 +3,9 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import authRoutes from "./routes/auth.js";
+import allergenRoutes from "./routes/register/allergenRoute.js";
+import dietTypeRoutes from "./routes/register/dietTypeRoute.js";
+import dislikeIngredientRoutes from "./routes/register/dislikeIngredientRoute.js";
 
 const PORT = process.env.PORT || 3000;
 
@@ -23,6 +26,9 @@ mongoose
   });
 
 app.use("/api/auth", authRoutes);
+app.use("/api", allergenRoutes);
+app.use("/api", dietTypeRoutes);
+app.use("/api", dislikeIngredientRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
