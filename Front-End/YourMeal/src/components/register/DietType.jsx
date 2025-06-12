@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./../../css/registerPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getDietTypes } from "../../features/diet/dietThunks";
+import NextBackButtons from "../NextBackButtons";
 
 const DietType = () => {
   const dispatch = useDispatch();
-  const { dietTypes, loading, error } = useSelector((state) => state.diet);
 
-  const [selectedDietType, setSelectedDietType] = useState("");
+  const { dietTypes, selectedDietType } = useSelector((state) => state.diet);
 
   const handleDietTypeDescriptionTR = (selectedDietType) => {
     const found = dietTypes.dietTypes?.find(
@@ -15,6 +15,7 @@ const DietType = () => {
     );
     return found ? found.descriptionTR : "Please select a diet type.";
   };
+
   useEffect(() => {
     dispatch(getDietTypes());
   }, [dispatch]);
@@ -38,7 +39,7 @@ const DietType = () => {
       <p className="dietType-description">
         {handleDietTypeDescriptionTR(selectedDietType)}
       </p>
-      <button>Next</button>
+      <NextBackButtons />
     </div>
   );
 };

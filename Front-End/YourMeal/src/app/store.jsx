@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import registerReducer from "../features/registerSlice.jsx";
+import dietTypeRegister from "../features/dietTypeSlice.jsx";
 
 const store = configureStore({
   reducer: {
-    diet: registerReducer,
+    diet: dietTypeRegister,
   },
 });
 export default store;

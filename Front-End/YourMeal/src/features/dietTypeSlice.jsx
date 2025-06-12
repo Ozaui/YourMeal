@@ -3,14 +3,19 @@ import { getDietTypes } from "./diet/dietThunks.jsx";
 
 const initialState = {
   dietTypes: [],
+  selectedDietType: null,
   loading: false,
   error: null,
 };
 
-const registerSlice = createSlice({
-  name: "user",
+const dietTypeSlice = createSlice({
+  name: "dietType",
   initialState,
-  reducers: {},
+  reducers: {
+    selectYourDietType(state, action) {
+      state.selectedDietType = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getDietTypes.pending, (state) => {
@@ -28,5 +33,5 @@ const registerSlice = createSlice({
   },
 });
 
-export const {} = registerSlice.actions;
-export default registerSlice.reducer;
+export const { selectYourDietType } = dietTypeSlice.actions;
+export default dietTypeSlice.reducer;
