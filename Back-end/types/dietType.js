@@ -1,5 +1,12 @@
 export const dietTypes = [
   {
+    name: "Normal",
+    descriptionTR:
+      "Herhangi bir kısıtlaması olmayan, tüm besin gruplarını içeren dengeli bir diyettir.",
+    descriptionEN:
+      "A balanced diet with no restrictions, including all types of food.",
+  },
+  {
     name: "Vegan",
     descriptionTR:
       "Hayvansal ürünlerin hiçbirini tüketmeyen bitkisel bazlı bir diyettir.",
