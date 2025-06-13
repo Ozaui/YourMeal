@@ -12,15 +12,13 @@ const allergensSlice = createSlice({
   name: "allergens",
   initialState,
   reducers: {
-    toggleAllergen(state, action) {
+    selectYourAllergens(state, action) {
       const allergen = action.payload;
       if (state.selectedAllergens.includes(allergen)) {
-        // Zaten varsa, çıkar
         state.selectedAllergens = state.selectedAllergens.filter(
           (item) => item !== allergen
         );
       } else {
-        // Yoksa, ekle
         state.selectedAllergens.push(allergen);
       }
     },
@@ -34,7 +32,11 @@ const allergensSlice = createSlice({
       })
       .addCase(getAllergens.fulfilled, (state, action) => {
         state.loading = false;
-        state.allergens = action.payload;
+        state.allergens = action.payload.allergensNames;
+        console.log(
+          "allergens fetched from backend: ",
+          action.payload.allergensNames
+        );
       })
       .addCase(getAllergens.rejected, (state, action) => {
         state.loading = false;
@@ -43,5 +45,5 @@ const allergensSlice = createSlice({
   },
 });
 
-export const {} = allergensSlice.actions;
+export const { selectYourAllergens } = allergensSlice.actions;
 export default allergensSlice.reducer;
