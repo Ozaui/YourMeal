@@ -1,11 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import dietTypeRegister from "../features/dietTypeSlice.jsx";
-import allergensRegister from "../features/allergensSlice.jsx";
+import firstRegisterPageReducer from "../features/firstRegisterPageSlice.jsx";
+import dietTypeReducer from "../features/dietTypeSlice.jsx";
+import allergensReducer from "../features/allergensSlice.jsx";
+import getDislikeIngredientReducer from "../features/dislikeIngredientSlice.jsx";
+import registerationReducer from "../features/registrationSlice.jsx";
 
 const store = configureStore({
   reducer: {
-    diet: dietTypeRegister,
-    allergens: allergensRegister,
+    firstRegisterPage: firstRegisterPageReducer,
+    diet: dietTypeReducer,
+    allergens: allergensReducer,
+    dislikeIngredient: getDislikeIngredientReducer,
+    registeration: registerationReducer,
   },
 });
 export default store;

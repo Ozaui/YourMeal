@@ -13,5 +13,6 @@ export const fetchAllergens = async () => {
 };
 
 export const fetchDislikeIngredients = async () => {
-  const response = await axios.get(`${BASE_URL}` / dislikeIngredients);
+  const response = await axios.get(`${BASE_URL}/dislikeIngredients`);
+  return response.data;
 };

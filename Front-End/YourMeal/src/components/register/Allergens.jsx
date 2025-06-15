@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectYourAllergens } from "../../features/allergensSlice";
 
-const Allergens = () => {
+const Allergens = ({ onNext, onBack }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const Allergens = () => {
           <p>No allergens selected</p>
         )}
       </div>
-      <NextBackButtos />
+      <NextBackButtos onNext={onNext} onBack={onBack} />
     </div>
   );
 };

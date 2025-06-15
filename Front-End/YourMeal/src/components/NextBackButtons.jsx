@@ -1,11 +1,9 @@
-import React from "react";
-
-const NextBackButtons = () => {
+const NextBackButtons = ({ onNext, onBack }) => {
   return (
     <div>
       <div style={{ display: "flex" }}>
-        <button>Next</button>
-        <button>Before</button>
+        <button onClick={onNext}>Next</button>
+        <button onClick={onBack}>Before</button>
       </div>
     </div>
   );
