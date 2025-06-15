@@ -2,14 +2,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getDislikeIngredients } from "../../features/dislikeIngredientsThunks/dislikeIngredientsThunks";
 import { selectYourDislikeIngredients } from "../../features/dislikeIngredientSlice";
+import { setDislikeIngredientForRegisteration } from "../../features/registrationSlice";
 import BackButton from "../../components/BackButton";
+import { useNavigate } from "react-router-dom";
 
 const DislikeIngredient = ({ onBack }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getDislikeIngredients());
-    console.log("useEffect Çalıştı");
   }, [dispatch]);
 
   const dislikeIngredient = useSelector(
@@ -18,9 +20,20 @@ const DislikeIngredient = ({ onBack }) => {
   const selectedDislikeIngredient = useSelector(
     (state) => state.dislikeIngredient.selectedDislikeIngredients
   );
-  const handleCheckboxChange = (dislikeIngredient) => {
-    dispatch(selectYourDislikeIngredients(dislikeIngredient));
+
+  const handleCheckboxChange = (name) => {
+    dispatch(selectYourDislikeIngredients(name));
   };
+
+  const handleRegister = () => {
+    dispatch(
+      setDislikeIngredientForRegisteration({
+        selectedDislikeIngredient: selectedDislikeIngredient, // bu bir array
+      })
+    );
+    navigate("/login");
+  };
+
   return (
     <div>
       <div className="dislikeIngredient-container">
@@ -57,7 +70,9 @@ const DislikeIngredient = ({ onBack }) => {
         </div>
         <BackButton onBack={onBack} />
       </div>
-      <button type="submit">Submit</button>
+      <button type="button" onClick={handleRegister}>
+        Submit
+      </button>
     </div>
   );
 };

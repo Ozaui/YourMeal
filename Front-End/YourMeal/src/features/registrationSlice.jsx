@@ -10,13 +10,13 @@ const initialState = {
     password: null,
   },
   dietInfo: {
-    selectedDietType: null,
+    selectedDietType: "normal",
   },
   allergens: {
     selectedAllergens: [],
   },
   dislikeIngredient: {
-    selecteddislikeIngredient: null,
+    selectedDislikeIngredient: [],
   },
 };
 
@@ -25,9 +25,7 @@ const registeration = createSlice({
   initialState,
   reducers: {
     setPersonalInfoForRegisteration: (state, action) => {
-      console.log("reducera gelen payload:", action.payload);
       state.personalInfo = action.payload;
-      console.log("state.personalInfo", state.personalInfo);
     },
 
     setDietTypeForRegisteration: (state, action) => {
@@ -37,10 +35,8 @@ const registeration = createSlice({
       state.allergens = { ...state.allergens, ...action.payload };
     },
     setDislikeIngredientForRegisteration: (state, action) => {
-      state.dislikeIngredient = {
-        ...state.dislikeIngredient,
-        ...action.payload,
-      };
+      state.dislikeIngredient.selectedDislikeIngredient =
+        action.payload.selectedDislikeIngredient;
     },
   },
 });

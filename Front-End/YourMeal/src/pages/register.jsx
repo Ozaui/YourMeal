@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Allergens from "../components/register/Allergens";
 import DietType from "../components/register/DietType";
-import DislikeIngredient from "../components/register/dislikeIngredient";
+import DislikeIngredient from "../components/register/DislikeIngredient";
 import FirstRegisterPageComponent from "../components/register/FirstRegisterPageComponent";
 import "../css/registerPage.css";
 
 const Register = () => {
-  const [step, setStep] = useState(0); // 0: FirstRegister, 1: DietType, 2: Allergens, 3: DislikeIngredient
+  const [step, setStep] = useState(0);
 
   const nextStep = () => {
     setStep((prev) => Math.min(prev + 1, 3));

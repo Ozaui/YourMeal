@@ -4,6 +4,7 @@ import { getAllergens } from "../../features/allergens/allergensThunks";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectYourAllergens } from "../../features/allergensSlice";
+import { setAllergensForRegisteration } from "../../features/registrationSlice";
 
 const Allergens = ({ onNext, onBack }) => {
   const dispatch = useDispatch();
@@ -18,6 +19,13 @@ const Allergens = ({ onNext, onBack }) => {
   );
   const handleCheckboxChange = (allergen) => {
     dispatch(selectYourAllergens(allergen));
+  };
+
+  const handleNextClick = () => {
+    dispatch(
+      setAllergensForRegisteration({ selectedAllergens: selectedAllergens })
+    );
+    if (onNext) onNext();
   };
   return (
     <div className="allergens-container">
@@ -47,7 +55,7 @@ const Allergens = ({ onNext, onBack }) => {
           <p>No allergens selected</p>
         )}
       </div>
-      <NextBackButtos onNext={onNext} onBack={onBack} />
+      <NextBackButtos onNext={handleNextClick} onBack={onBack} />
     </div>
   );
 };

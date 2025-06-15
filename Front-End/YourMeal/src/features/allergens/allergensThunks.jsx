@@ -6,7 +6,7 @@ export const getAllergens = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await fetchAllergens();
-      console.log("Allergens fetched successfully:", response);
+
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data || "unknown error");

@@ -6,7 +6,6 @@ import { setPersonalInfoForRegisteration } from "../../features/registrationSlic
 
 const FirstRegisterPageComponent = ({ onNext }) => {
   const dispatch = useDispatch();
-  const personalInfo = useSelector((state) => state.registeration.personalInfo);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -27,7 +26,6 @@ const FirstRegisterPageComponent = ({ onNext }) => {
   const handleNext = () => {
     dispatch(setPersonalInfoForRegisteration(formData));
     dispatch(setPersonalInfo(formData));
-    console.log(personalInfo.name);
 
     if (onNext) onNext();
   };

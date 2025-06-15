@@ -33,10 +33,6 @@ const allergensSlice = createSlice({
       .addCase(getAllergens.fulfilled, (state, action) => {
         state.loading = false;
         state.allergens = action.payload.allergensNames;
-        console.log(
-          "allergens fetched from backend: ",
-          action.payload.allergensNames
-        );
       })
       .addCase(getAllergens.rejected, (state, action) => {
         state.loading = false;

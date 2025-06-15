@@ -9,19 +9,19 @@ const initialState = {
 };
 
 const dislikeIngredientsSlice = createSlice({
-  name: "dislikeIngredients",
+  name: "dislikeIngredient",
   initialState,
   reducers: {
     selectYourDislikeIngredients(state, action) {
-      const dislikeIngredients = action.payload;
-      if (state.selectedDislikeIngredients.includes(dislikeIngredients)) {
+      const item = action.payload;
+      console.log("Reducer'a gelen:", item);
+      if (state.selectedDislikeIngredients.includes(item)) {
         state.selectedDislikeIngredients =
-          state.selectedDislikeIngredients.filter(
-            (item) => item !== dislikeIngredients
-          );
+          state.selectedDislikeIngredients.filter((i) => i !== item);
       } else {
-        state.selectedDislikeIngredients.push(dislikeIngredients);
+        state.selectedDislikeIngredients.push(item);
       }
+      console.log("Yeni state:", state.selectedDislikeIngredients);
     },
   },
   extraReducers: (builder) => {
@@ -33,10 +33,6 @@ const dislikeIngredientsSlice = createSlice({
       .addCase(getDislikeIngredients.fulfilled, (state, action) => {
         state.loading = false;
         state.dislikeIngredients = action.payload.dislikeIngredientNames;
-        console.log(
-          "dislikeIngredient fetched from backend succesfully:",
-          action.payload.dislikeIngredientNames
-        );
       })
       .addCase(getDislikeIngredients.rejected, (state, action) => {
         state.loading = false;

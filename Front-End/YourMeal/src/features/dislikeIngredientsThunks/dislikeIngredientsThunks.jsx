@@ -6,7 +6,7 @@ export const getDislikeIngredients = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await fetchDislikeIngredients();
-      console.log("dislikeIngredients fetched successfully:", response);
+
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data || "unknown error");

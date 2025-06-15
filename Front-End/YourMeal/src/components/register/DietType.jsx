@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./../../css/registerPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getDietTypes } from "../../features/diet/dietThunks";
 import NextBackButtons from "../NextBackButtons";
 import { selectYourDietType } from "../../features/dietTypeSlice";
+import { setDietTypeForRegisteration } from "../../features/registrationSlice";
 
 const DietType = ({ onNext, onBack }) => {
   const dispatch = useDispatch();
@@ -31,7 +32,9 @@ const DietType = ({ onNext, onBack }) => {
         required
         onChange={(e) => {
           dispatch(selectYourDietType(e.target.value));
-          dispatch(setDietTypeForRegisteration(e.target.value));
+          dispatch(
+            setDietTypeForRegisteration({ selectedDietType: e.target.value })
+          );
         }}
       >
         {dietTypes.dietTypes?.map(({ name }, index) => (

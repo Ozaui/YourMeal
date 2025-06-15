@@ -6,7 +6,7 @@ export const getDietTypes = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await fetchDietTypes();
-      console.log("Diet types fetched successfully:", response);
+
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data || "unknown error");
