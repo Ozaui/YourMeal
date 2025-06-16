@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema(
     dietType: {
       type: String,
       required: true,
-      enum: dietTypes,
+      enum: dietTypes.map((d) => d.name),
     },
     allergens: { type: [String], required: true, enum: allergensNames },
     dislikeIngredients: {

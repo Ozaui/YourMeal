@@ -3,6 +3,7 @@ import User from "../models/User.js";
 
 export const register = async (req, res) => {
   try {
+    console.log("Gelen veri:", req.body);
     const {
       name,
       lastName,

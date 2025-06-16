@@ -10,7 +10,7 @@ const initialState = {
     password: null,
   },
   dietInfo: {
-    selectedDietType: "normal",
+    selectedDietType: "Normal",
   },
   allergens: {
     selectedAllergens: [],

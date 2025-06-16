@@ -5,6 +5,7 @@ import { selectYourDislikeIngredients } from "../../features/dislikeIngredientSl
 import { setDislikeIngredientForRegisteration } from "../../features/registrationSlice";
 import BackButton from "../../components/BackButton";
 import { useNavigate } from "react-router-dom";
+import { registerUser } from "../../features/register/registerThunks";
 
 const DislikeIngredient = ({ onBack }) => {
   const dispatch = useDispatch();
@@ -25,13 +26,21 @@ const DislikeIngredient = ({ onBack }) => {
     dispatch(selectYourDislikeIngredients(name));
   };
 
-  const handleRegister = () => {
+  const registerationState = useSelector((state) => state.registeration);
+  const handleRegister = async (e) => {
+    e.preventDefault();
     dispatch(
       setDislikeIngredientForRegisteration({
-        selectedDislikeIngredient: selectedDislikeIngredient, // bu bir array
+        selectedDislikeIngredient: selectedDislikeIngredient,
       })
     );
-    navigate("/login");
+    const resultAction = await dispatch(registerUser(registerationState));
+
+    if (registerUser.fulfilled.match(resultAction)) {
+      navigate("/login");
+    } else {
+      alert("KAyıt başarısız: " + resultAction.payload);
+    }
   };
 
   return (
@@ -70,7 +79,7 @@ const DislikeIngredient = ({ onBack }) => {
         </div>
         <BackButton onBack={onBack} />
       </div>
-      <button type="button" onClick={handleRegister}>
+      <button type="submit" onClick={(e) => handleRegister(e)}>
         Submit
       </button>
     </div>
