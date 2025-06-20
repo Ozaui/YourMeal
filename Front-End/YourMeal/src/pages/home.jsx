@@ -1,16 +1,11 @@
-import { useSelector } from "react-redux";
+import AllMeals from "../components/meals/AllMeals";
 
 const home = () => {
-  const selectedDislikeIngredient = useSelector(
-    (state) => state.registeration.dislikeIngredient.selecteddislikeIngredient
+  return (
+    <div>
+      <AllMeals />
+    </div>
   );
-  const allergens = useSelector(
-    (state) => state.registeration.allergens.selectedAllergens
-  );
-
-  console.log(allergens);
-
-  return <div>home</div>;
 };
 
 export default home;

@@ -1,0 +1,69 @@
+.meal-details-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #e1f39d;
+  border: 1px solid #118b50;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.meal-title {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.meal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.meal-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #444;
+  text-align: center;
+}
+
+.meal-section {
+  margin-bottom: 20px;
+}
+
+.meal-section h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge {
+  background-color: #e3f0af;
+  border: 1px solid #118b50;
+  color: #721c24;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.text-list {
+  padding-left: 20px;
+  color: #333;
+}
+
+.center-text {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 40px;
+}
+
+.error-text {
+  color: red;
+}

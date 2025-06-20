@@ -1,7 +1,13 @@
 import express from "express";
-import { getMeals } from "../controller/MealController.js";
+import {
+  getMeals,
+  getMealById,
+  getMealsByCategory,
+} from "../controller/MealController.js";
 
 const router = express.Router();
 
 router.get("/meals", getMeals);
+router.get("/meals/:id", getMealById);
+router.get("/meals/category", getMealsByCategory);
 export default router;

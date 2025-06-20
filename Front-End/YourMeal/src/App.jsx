@@ -1,16 +1,11 @@
-import { Provider } from "react-redux";
-import "./App.css";
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import AppRoutes from "./router/AppRoutes";
-import store from "./app/store";
 
-const App = () => {
-  return (
-    <>
-      <Provider store={store}>
-        <AppRoutes />
-      </Provider>
-    </>
-  );
-};
+const App = () => (
+  <Router>
+    <AppRoutes />
+  </Router>
+);
 
 export default App;
